@@ -27,19 +27,3 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   PRIMARY KEY (`codvenda`),
   FOREIGN KEY (`IDCliente`) REFERENCES cliente(`IDCliente`) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-
---CLIENTE
-DROP PROCEDURE IF EXISTS sp_cadastro_de_cliente
-
-DELIMITER $$;
-
-CREATE PROCEDURE sp_cadastro_de_cliente(IN IDCliente INT(10), rg INT(10), nome VARCHAR(100))
-BEGIN
-	IF (IDCliente!=0)AND(rg>0)AND(Nome!="") THEN
-      INSERT INTO  cliente(IDCliente, rg, Nome) 
-        VALUES (IDCliente, rg, Nome);
-    ELSE
-    	SELECT 'Todos os campos devem ser fornecidos no cadastro!' AS msg;
-    END IF;
-END $$
