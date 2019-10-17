@@ -1,14 +1,14 @@
 --Cliente
 
 --Adicionar
-DDROP PROCEDURE IF EXISTS sp_cadastro_de_cliente;
+DROP PROCEDURE IF EXISTS sp_cadastro_de_cliente;
 
 DELIMITER $$
-CREATE PROCEDURE sp_cadastro_de_cliente(v_rg INT(10), v_nome VARCHAR(100))
+CREATE PROCEDURE sp_cadastro_de_cliente(rg INT(10), nome VARCHAR(100))
 BEGIN
 	IF (rg>0) THEN
       INSERT INTO  cliente(idCliente, rg, nome) 
-        VALUES (null, v_rg, v_nome);
+        VALUES (null, rg, nome);
     ELSE
     	SELECT 'Todos os campos devem ser fornecidos no cadastro!' AS msg;
     END IF;
@@ -30,9 +30,9 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS sp_deletar_cliente;
 
 DELIMITER $$
-CREATE PROCEDURE sp_deletar_cliente(v_idCliente INT(10))
+CREATE PROCEDURE sp_deletar_cliente(idCliente INT(10))
 BEGIN
-	DELETE FROM cliente WHERE idCliente = $v_idCliente;
+	DELETE FROM cliente WHERE idCliente = idCliente;
 END $$
 DELIMITER ;
 
@@ -41,8 +41,8 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS sp_editar_cliente;
 
 DELIMITER $$
-CREATE PROCEDURE sp_editar_cliente(v_idCliente INT(10), v_rg INT(10), v_nome VARCHAR(100))
+CREATE PROCEDURE sp_editar_cliente(rg INT(10), nome VARCHAR(100), IDCliente INT(10))
 BEGIN
-	UPDATE cliente SET rg = v_rg, nome = v_nome WHERE idCliente = v_idCliente; 	
+	UPDATE cliente SET rg = rg, nome = nome WHERE IDCliente = idCliente; 	
 END $$
 DELIMITER $$

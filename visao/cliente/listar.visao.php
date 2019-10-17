@@ -17,11 +17,11 @@
             foreach($clientes as $cliente):
         ?>
 		<tr>
-			<td><?= $cliente['idCliente']?></td>
-			<td><?= $cliente['nome']?></td>
-            <td> <?= $cliente['rg']?>
-			<td> <a href="./cliente/deletar/<?=$cliente['idCliente']?>">Deletar</a> </td>
-			<td> <a href="./cliente/editar/<?=$cliente['idCliente']?>">Editar</a> </td>
+			<td><?= $cliente['IDCliente']?></td>
+			<td><?= $cliente['Nome']?></td>
+                        <td> <?= $cliente['rg']?></td>
+			<td> <a href="./cliente/deletar/<?=$cliente['IDCliente']?>">Deletar</a> </td>
+			<td> <a href="./cliente/editar/<?=$cliente['IDCliente']?>">Editar</a> </td>
                         ?>
                 </tr>
         <?php 

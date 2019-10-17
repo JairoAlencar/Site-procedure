@@ -24,12 +24,11 @@ function deletar($idCliente){
 	redirecionar ("cliente/listar");
 }	
 
-function editar(){
+function editar($idCliente){
 	if (ehPost()) {
 		$nome = $_POST['nome'];
 		$rg = $_POST['rg'];
-
-		editarCliente($rg, $nome);
+		editarCliente($rg, $nome, $idCliente);
 	exibir('cliente/cliente');
 	}else{
 	exibir('cliente/cliente');	

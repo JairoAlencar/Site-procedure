@@ -23,8 +23,8 @@ function deletarCliente($idCliente){
     return 'Cliente deletado com sucesso!';
 }
 
-function ($rg, $nome){
-    $sql = "CALL sp_editar_cliente ('$rg', '$nome')";
+function editarCliente($rg, $nome, $idCliente){
+    $sql = "CALL sp_editar_cliente ('$rg', '$nome', '$idCliente')";
     $resultado = mysqli_query(conn(), $sql);
     if(!$resultado) { die('Erro ao editar cliente' . mysqli_error(conn())); }
     return 'Cliente editado com sucesso!!';
