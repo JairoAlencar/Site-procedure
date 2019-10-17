@@ -1,4 +1,4 @@
 <?php
-$con = mysql_connect('localhost', 'root', '');
-    mysql_select_db('venda_loja', $con);
+$con = mysqli_connect('localhost', 'root', '');
+mysqli_select_db($con, 'loja');
 ?>

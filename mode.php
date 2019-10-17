@@ -3,10 +3,10 @@ require_once "conexão.php";
 
 function add_cliente(){
 	if (ehPost()) {
-			$rg   = $_POST["rg"]
+			$rg   = $_POST["rg"];
 			$nome = $_POST["nome"];
 
-				$dados['clientes'] = sp_cadastro_de_cliente($rg, $nome);
+				$dados = mysqli_query('CALL sp_cadastro_de_cliente($rg, $nome)');
 
 			exibir("cliente.php", $dados);
 		}else {
