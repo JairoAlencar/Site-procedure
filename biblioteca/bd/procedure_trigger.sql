@@ -94,5 +94,47 @@ BEGIN
 END $$
 DELIMITER ;
 
---TRIGGERs
+--Venda
 
+-- Adicionar
+DROP PROCEDURE IF EXISTS sp_addVenda;
+
+DELIMITER $$
+CREATE PROCEDURE sp_addVenda (idUsuario INT, dataVenda DATE)
+BEGIN
+        INSERT INTO venda(codVenda, idCliente, dataVenda) VALUES (NULL, idUsuario, dataVenda);
+END $$
+DELIMITER ;
+
+--Listar
+
+DROP PROCEDURE IF EXISTS sp_listar_venda;
+
+DELIMITER $$
+CREATE PROCEDURE sp_listar_venda()
+BEGIN
+        SELECT * FROM venda ORDER BY dataVenda ASC;
+END $$
+DELIMITER ;
+
+-- Item venda
+
+-- Adicionar
+DROP PROCEDURE IF EXISTS sp_adicionar_ItemVenda;
+
+DELIMITER $$
+CREATE PROCEDURE sp_adicionar_ItemVenda (codVenda INT, codProduto INT, quantidade INT)
+BEGIN
+        INSERT INTO itemVenda(codvenda, codproduto, quantidade) VALUES (codVenda, codProduto, quantidade);
+    END; $$
+DELIMITER ;
+
+-- Deletar
+DROP PROCEDURE IF EXISTS sp_deletar_ItemVenda;
+
+DELIMITER $$
+CREATE PROCEDURE sp_deletar_ItemVenda(codVenda INT, codProduto INT)
+BEGIN
+    DELETE FROM itemvenda WHERE codVenda = codVenda AND codProduto = codProduto;
+END; $$
+DELIMITER ;

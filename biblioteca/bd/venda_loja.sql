@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `itemVenda` (
   FOREIGN KEY (`codproduto`) REFERENCES produto(`codProduto`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS `pedido` (
+CREATE TABLE IF NOT EXISTS `venda` (
   `codvenda` int(10) NOT NULL AUTO_INCREMENT,
   `idCliente` int(10) NOT NULL,
   `DataVenda` DATE NOT NULL,
