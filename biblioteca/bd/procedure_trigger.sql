@@ -12,8 +12,8 @@ BEGIN
     ELSE
     	SELECT 'Todos os campos devem ser fornecidos no cadastro!' AS msg;
     END IF;
-END $$
-DELIMITER ;
+END
+--DELIMITER;
 
 --Listar
 DROP PROCEDURE IF EXISTS sp_listar_cliente;
@@ -30,9 +30,9 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS sp_deletar_cliente;
 
 DELIMITER $$
-CREATE PROCEDURE sp_deletar_cliente(idCliente INT(10))
+CREATE PROCEDURE sp_deletar_cliente(v_idCliente INT(10))
 BEGIN
-	DELETE FROM cliente WHERE idCliente = idCliente;
+	DELETE FROM cliente WHERE IDCliente = v_idCliente;
 END $$
 DELIMITER ;
 
@@ -41,9 +41,9 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS sp_editar_cliente;
 
 DELIMITER $$
-CREATE PROCEDURE sp_editar_cliente(rg INT(10), nome VARCHAR(100), IDCliente INT(10))
+CREATE PROCEDURE sp_editar_cliente(rg INT(10), nome VARCHAR(100), v_idCliente INT(10))
 BEGIN
-	UPDATE cliente SET rg = rg, nome = nome WHERE IDCliente = idCliente; 	
+	UPDATE cliente SET rg = rg, nome = nome  WHERE IDCliente = v_idCliente; 	
 END $$
 DELIMITER $$
 
@@ -62,7 +62,7 @@ BEGIN
     	SELECT 'Todos os campos devem ser fornecidos no cadastro!' AS msg;
     END IF;
 END $$
-DELIMITER ;
+--DELIMITER ;
 
 --Listar
 DROP PROCEDURE IF EXISTS sp_listar_produto;
@@ -72,27 +72,28 @@ CREATE PROCEDURE sp_listar_produto()
 BEGIN
     SELECT * FROM produto ORDER BY codProduto ASC;
 END $$
-DELIMITER ;
+--DELIMITER ;
 
 --Deletar 
 DROP PROCEDURE IF EXISTS sp_deletar_produto;
 
 DELIMITER $$
-CREATE PROCEDURE sp_deletar_produto(codProduto INT(10))
+CREATE PROCEDURE sp_deletar_produto(v_codProduto INT(10))
 BEGIN
-    DELETE FROM produto WHERE codProduto = codProduto;
+    DELETE FROM produto WHERE codProduto = v_codProduto;
 END $$
-DELIMITER ;
+--DELIMITER ;
 
 --Editar
 DROP PROCEDURE IF EXISTS sp_editar_produto;
 
 DELIMITER $$
-CREATE PROCEDURE sp_editar_produto(descricao VARCHAR(45), quantidade INT(10))
+CREATE PROCEDURE sp_editar_produto(descricao VARCHAR(45), quantidade INT(10), v_codProduto INT(10))
 BEGIN
-    UPDATE produto SET descricao = descricao, quant = quant WHERE codProduto = codProduto;
+    UPDATE produto SET descricao = descricao, quantidade = quantidade WHERE codProduto = v_codProduto;
 END $$
-DELIMITER ;
+--DELIMITER ;
+
 
 --Venda
 
@@ -104,7 +105,7 @@ CREATE PROCEDURE sp_addVenda (idUsuario INT, dataVenda DATE)
 BEGIN
         INSERT INTO venda(codVenda, idCliente, dataVenda) VALUES (NULL, idUsuario, dataVenda);
 END $$
-DELIMITER ;
+--DELIMITER ;
 
 --Listar
 
@@ -115,7 +116,7 @@ CREATE PROCEDURE sp_listar_venda()
 BEGIN
         SELECT * FROM venda ORDER BY dataVenda ASC;
 END $$
-DELIMITER ;
+--DELIMITER ;
 
 -- Item venda
 
@@ -127,7 +128,7 @@ CREATE PROCEDURE sp_adicionar_ItemVenda (codVenda INT, codProduto INT, quantidad
 BEGIN
         INSERT INTO itemVenda(codvenda, codproduto, quantidade) VALUES (codVenda, codProduto, quantidade);
     END; $$
-DELIMITER ;
+--DELIMITER ;
 
 -- Deletar
 DROP PROCEDURE IF EXISTS sp_deletar_ItemVenda;
@@ -137,4 +138,4 @@ CREATE PROCEDURE sp_deletar_ItemVenda(codVenda INT, codProduto INT)
 BEGIN
     DELETE FROM itemvenda WHERE codVenda = codVenda AND codProduto = codProduto;
 END; $$
-DELIMITER ;
+--DELIMITER ;

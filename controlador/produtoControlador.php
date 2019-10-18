@@ -15,7 +15,7 @@ function adicionar(){
 
 function listar(){
 	$dados = array();
-	$dados['produto'] = listarProduto();
+	$dados['produtos'] = listarProduto();
 	exibir('produto/listar', $dados); 
 }
 
@@ -26,10 +26,11 @@ function deletar($codProduto){
 
 function editar($codProduto){
 	if(ehPost()){
+                $codProduto = $codProduto;
 		$desc = $_POST['desc'];
 		$quant = $_POST['quant'];
 
-		editarProduto($desc, $quant);
+		editarProduto($desc, $quant, $codProduto);
 		exibir('produto/produto');
 	}else{
 		exibir('produto/produto');

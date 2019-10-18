@@ -26,6 +26,7 @@ function deletar($idCliente){
 
 function editar($idCliente){
 	if (ehPost()) {
+                $idCliente = $idCliente;
 		$nome = $_POST['nome'];
 		$rg = $_POST['rg'];
 		editarCliente($rg, $nome, $idCliente);

@@ -16,10 +16,10 @@
         ?>
 		<tr>
 			<td><?= $produto['codProduto']?></td>
-			<td><?= $produto['desc']?></td>
-            <td> <?= $produto['quant']?>
-			<td> <a href=" ">Deletar</a> </td>
-			<td> <a href=" ">Editar</a> </td>
+			<td><?= $produto['Descricao']?></td>
+                        <td> <?= $produto['Quantidade']?></td>
+			<td> <a href="./produto/deletar/<?=$produto['codProduto']?>">Deletar</a> </td>
+			<td> <a href="./produto/editar/<?=$produto['codProduto']?>">Editar</a> </td>
                         ?>
                 </tr>
         <?php 

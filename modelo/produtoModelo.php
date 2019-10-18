@@ -1,4 +1,4 @@
-<?
+<?php
 function adicionarProduto($desc, $quant){
 	$sql = "CALL sp_cadastro_produto ('$desc', '$quant')";
     $resultado = mysqli_query(conn(), $sql);
@@ -7,13 +7,13 @@ function adicionarProduto($desc, $quant){
 }
 
 function listarProduto(){
-	$sql = "CALL sp_listar_produto()";
+    $sql = "CALL sp_listar_produto()";
     $resultado = mysqli_query(conn(), $sql);
-    $produto = array();
+    $produtos = array();
     while ($linha = mysqli_fetch_assoc($resultado)) {
-        $produto[] = $linha;
+        $produtos[] = $linha;
     }
-    return $produto;
+    return $produtos;
 }
 
 function deletarProduto($codProduto){
@@ -22,10 +22,9 @@ function deletarProduto($codProduto){
     if(!$resultado) { die('Erro ao deletar produto' . mysqli_error($cnx)); }
     return 'Produto deletado com sucesso!';
 }
-}
 
-function editarProduto($desc, $quant){
-    $sql = "CALL sp_editar_produto ('$desc', '$quant')";
+function editarProduto($desc, $quant, $codProduto){
+    $sql = "CALL sp_editar_produto ('$desc', '$quant', '$codProduto')";
     $resultado = mysqli_query(conn(), $sql);
     if(!$resultado) { die('Erro ao editar produto' . mysqli_error(conn())); }
     return 'Produto editado com sucesso!!';
