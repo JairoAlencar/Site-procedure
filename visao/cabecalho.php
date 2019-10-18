@@ -2,9 +2,11 @@
 <nav>
   <tr>
     <td><button><a href="./">Principal</a></td>
-    <td><button><a href="./cliente/adicionar">Add cliente</a></td>
-    <td><button><a href="./cliente/listar">List cliente</a></td>
-    <td><button><a href="./produto/adicionar">Add produto</a></td>
-    <td><button><a href="./produto/listar">List produto</a></td>
+    <td><button><a href="./cliente/adicionar">Adicionar cliente</a></td>
+    <td><button><a href="./produto/adicionar">Adicionar produto</a></td>    	
+    <td><button><a href="./cliente/listar">Listar cliente</a></td>
+    <td><button><a href="./produto/listar">Listar produto</a></td>
+    <td><button><a href="./venda/listar">Listar venda</a></button></td>
+    <td><button><a href="./itemvenda/listar">listar item venda</a></button></td>	
   </tr>
 </nav>

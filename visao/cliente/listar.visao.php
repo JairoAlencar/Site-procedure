@@ -22,7 +22,6 @@
                         <td> <?= $cliente['rg']?></td>
 			<td> <a href="./cliente/deletar/<?=$cliente['IDCliente']?>">Deletar</a> </td>
 			<td> <a href="./cliente/editar/<?=$cliente['IDCliente']?>">Editar</a> </td>
-                        ?>
                 </tr>
         <?php 
             endforeach;

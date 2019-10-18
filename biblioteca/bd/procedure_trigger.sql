@@ -139,3 +139,14 @@ BEGIN
     DELETE FROM itemvenda WHERE codVenda = codVenda AND codProduto = codProduto;
 END; $$
 --DELIMITER ;
+
+--Listar
+
+DROP PROCEDURE IF EXISTS sp_listar_ItemVenda;
+
+DELIMITER $$
+CREATE PROCEDURE sp_listar_ItemVenda()
+BEGIN
+        SELECT * FROM itemvenda ORDER BY codProduto ASC;
+END $$
+DELIMITER ;

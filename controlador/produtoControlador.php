@@ -7,7 +7,7 @@ function adicionar(){
 		$quant = $_POST['quant'];
 
 		adicionarProduto($desc, $quant);
-		exibir('produto/produto');
+		exibir('produto/listar');
 	}else{
 		exibir('produto/produto');
 	}
@@ -26,7 +26,6 @@ function deletar($codProduto){
 
 function editar($codProduto){
 	if(ehPost()){
-                $codProduto = $codProduto;
 		$desc = $_POST['desc'];
 		$quant = $_POST['quant'];
 

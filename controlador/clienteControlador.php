@@ -7,7 +7,7 @@ function adicionar(){
 		$rg = $_POST['rg'];
 
 		adicionarCliente($rg, $nome);
-	exibir('cliente/cliente');
+	exibir('cliente/listar');
 	}else{
 	exibir('cliente/cliente');	
 	}

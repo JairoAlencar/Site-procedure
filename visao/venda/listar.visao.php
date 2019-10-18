@@ -16,8 +16,8 @@
         ?>
 		<tr>
 			<td><?= $venda['codvenda']?></td>
-			<td><?= $venda['idcliente']?></td>
-            <td> <?= $venda['datavenda']?></td>
+			<td><?= $venda['idCliente']?></td>
+            <td> <?= $venda['DataVenda']?></td>
         </tr>
         <?php 
             endforeach;

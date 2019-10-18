@@ -1,5 +1,8 @@
 <h2>Lista de produtos</h2>
-<?php if(!empty($produtos)){ ?>
+<?php 
+	if(!empty($produtos)){ 
+?>
+
 	<TABLE class="table">
 		<thead>
 			<tr>
@@ -15,12 +18,11 @@
             foreach($produtos as $produto):
         ?>
 		<tr>
-			<td><?= $produto['codProduto']?></td>
-			<td><?= $produto['Descricao']?></td>
-                        <td> <?= $produto['Quantidade']?></td>
+			<td> <?= $produto['codProduto'] ?> </td>
+			<td> <?= $produto['Descricao'] ?> </td>
+            <td> <?= $produto['Quantidade'] ?> </td>
 			<td> <a href="./produto/deletar/<?=$produto['codProduto']?>">Deletar</a> </td>
 			<td> <a href="./produto/editar/<?=$produto['codProduto']?>">Editar</a> </td>
-                        ?>
                 </tr>
         <?php 
             endforeach;

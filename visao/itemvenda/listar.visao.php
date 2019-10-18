@@ -6,10 +6,8 @@
 		<thead>
 			<tr>
 				<th>Cod Venda</th>
-				<th>Cod Prodtuo</th>
+				<th>Cod Produto</th>
 				<th>Quantidade</th>
-				<th>Deletar</th>
-				<th>Editar</th>
 			</tr>
 		</thead>
 
